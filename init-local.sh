@@ -1,7 +1,9 @@
+#!/bin/sh
+
 NAMESPACE_ID=$(openssl rand -hex 8)
 echo $NAMESPACE_ID
 
-DA_BLOCK_HEIGHT=$(curl https://rpc-arabica-9.consensus.celestia-arabica.com/block |jq -r '.result.block.header.height')
+DA_BLOCK_HEIGHT=$(curl http://localhost:26650/block |jq -r '.result.block.header.height')
 echo $DA_BLOCK_HEIGHT
 
 AUTH_TOKEN=""
